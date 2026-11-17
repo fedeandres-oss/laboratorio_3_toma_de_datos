@@ -1,0 +1,32 @@
+menu "Configuración del Guante (Wi-Fi + envío al PC)"
+
+    config WIFI_SSID
+        string "SSID de la red Wi-Fi"
+        default "MiRed"
+
+    config WIFI_PASSWORD
+        string "Contraseña Wi-Fi"
+        default ""
+
+    config WIFI_MAX_RETRY
+        int "Máximos reintentos de conexión Wi-Fi"
+        range 1 20
+        default 5
+
+    config PC_IP_ADDR
+        string "Dirección IP del PC (destino UDP)"
+        default "192.168.1.100"
+        help
+            IP del computador donde recibes los datos.
+
+    config PC_PORT
+        int "Puerto UDP del PC"
+        range 1 65535
+        default 5000
+
+    config SEND_INTERVAL_MS
+        int "Intervalo de envío (ms)"
+        range 100 60000
+        default 1000
+
+endmenu
